@@ -6,7 +6,12 @@ public class List1Exercises {
       * to change. */
     public static IntList incrList(IntList L, int x) {
         /* Your code here. */
-        return L;        
+        IntList result = null;
+        for (int i = L.size() - 1; i >= 0; i--) {
+            int newValue = L.get(i) + x;
+            result = new IntList(newValue, result);
+        }
+        return result;
     }
 
     /** Returns an IntList identical to L, but with
@@ -14,7 +19,12 @@ public class List1Exercises {
       * the 'new' keyword. */
     public static IntList dincrList(IntList L, int x) {
         /* Your code here. */
-        return L;
+        IntList Q = L;
+        while (L != null) {
+            L.first += x;
+            L = L.rest;
+        }
+           return Q;
     }
 
     public static void main(String[] args) {
